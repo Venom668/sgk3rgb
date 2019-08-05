@@ -1,6 +1,8 @@
 import usb.core
 import usb.util
 import usb.control
+import sys
+import argparse
 
 vendor = 0x0c45
 product = 0x8513
@@ -144,6 +146,7 @@ def detach_device():
         dev.set_configuration(bConfigurationValue)
     except Exception as exception:
         print("Failed to detach device: " + str(exception))
+        exit()
 
 def reattach_device():
     try:
@@ -152,21 +155,19 @@ def reattach_device():
         dev.attach_kernel_driver(1)
     except Exception as exception:
         print("Failed to reattach device: " + str(exception))
+        exit()
 
 def change_light(button, color):
     msg = prefix + keycodes[button][0] + [0x01, 0x11, 0x03] + keycodes[button][1] + [0x02, 0x00] + color
     while len(msg) < 64: #fill msg with zeros to 64 bytes
         msg = msg + [0x00]
-    return msg
+    send_packet(msg)
 
 def change_brightness(level):
     msg = prefix + brightness[level][0] + [0x00, 0x06, 0x01, 0x2b, 0x00, 0x00] + brightness[level][1]
     while len(msg) < 64: #fill msg with zeros to 64 bytes
         msg = msg + [0x00]
-    return msg
-
-def choose_color(red, green, blue):
-    return [red, green, blue]
+    send_packet(msg)
 
 def send_packet(msg):
     open = [0x04, 0x01, 0x00, 0x01] + [0x00]*60
@@ -203,25 +204,35 @@ def send_packet(msg):
 #dev.ctrl_transfer(0x21, 9, 0x0204, 1, pdz)
 
 
-def main():
-    button = input("Select button: ")
-    if button not in keycodes.keys():
-        print("Button doesn't exist")
-        exit()
+parser = argparse.ArgumentParser()
 
-    try:
-        red = int(input("Red value (0-255):  "))
-        green = int(input("Green value (0-255):  "))
-        blue = int(input("Blue value (0-255):  "))
-    except ValueError:
-        print("Wrong color value")
-        exit()
-    if (red or green or blue) > 255 or (red or green or blue) < 0:
-        print("Wrong color value")
-        exit()
+parser.add_argument('-l', '--level',
+                    type = int,
+                    choices = [0, 1, 2, 3, 4, 5],
+                    metavar = '<0-5>',
+                    help = "brightness level")
 
-    msg = change_light(button, choose_color(red, green, blue))
-    send_packet(msg)
+parser.add_argument('-c', '--color',
+                    nargs = 3,
+                    type = int,
+                    choices = range(0,256),
+                    metavar = '<0-255>',
+                    help = "<r> <g> <b>")
 
+parser.add_argument('-k', '--key',
+                    metavar = '<key>',
+                    required = '-c' in sys.argv or '--color' in sys.argv,  #require only if --color is given
+                    choices = keycodes.keys(),
+                    help = "")
 
-main()
+parser.add_argument('--listkeys',
+                    action = 'store_true',
+                    help = "list available keys")
+
+args = parser.parse_args()
+if args.listkeys:
+    print(keycodes.keys())
+elif args.level:
+    change_brightness(str(args.level))
+elif args.color:
+    change_light(args.key, args.color)
