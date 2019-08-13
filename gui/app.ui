@@ -19,6 +19,12 @@
   <property name="layoutDirection">
    <enum>Qt::RightToLeft</enum>
   </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(49, 54, 59);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -61,7 +67,7 @@
      <enum>Qt::NoContextMenu</enum>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
@@ -697,7 +703,7 @@
      <enum>Qt::NoContextMenu</enum>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
@@ -768,7 +774,7 @@
      <enum>Qt::NoContextMenu</enum>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
@@ -839,7 +845,7 @@
      <enum>Qt::NoContextMenu</enum>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
@@ -947,7 +953,7 @@
      <enum>Qt::NoContextMenu</enum>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
@@ -1157,7 +1163,7 @@
      <enum>Qt::NoContextMenu</enum>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
@@ -4754,7 +4760,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="button_numenter">
+   <widget class="QPushButton" name="button_nument">
     <property name="geometry">
      <rect>
       <x>914</x>
@@ -4791,7 +4797,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="button_numenter_led">
+   <widget class="QPushButton" name="button_nument_led">
     <property name="geometry">
      <rect>
       <x>914</x>
@@ -5748,7 +5754,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="button_nummultiply">
+   <widget class="QPushButton" name="button_nummulti">
     <property name="geometry">
      <rect>
       <x>878</x>
@@ -5785,7 +5791,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="button_nummultiply_led">
+   <widget class="QPushButton" name="button_nummulti_led">
     <property name="geometry">
      <rect>
       <x>878</x>
@@ -6434,7 +6440,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="button_prntscr">
+   <widget class="QPushButton" name="button_prtscr">
     <property name="geometry">
      <rect>
       <x>691</x>
@@ -6468,7 +6474,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="button_prntscr_led">
+   <widget class="QPushButton" name="button_prtscr_led">
     <property name="geometry">
      <rect>
       <x>691</x>
@@ -7334,7 +7340,8 @@
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background-color: rgb(48, 53, 58);
+color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
      <string>Select color</string>
@@ -7353,7 +7360,7 @@
    <zorder>button_delete_led</zorder>
    <zorder>button_end_led</zorder>
    <zorder>button_pgdn_led</zorder>
-   <zorder>button_prntscr_led</zorder>
+   <zorder>button_prtscr_led</zorder>
    <zorder>button_scroll_led</zorder>
    <zorder>button_pause_led</zorder>
    <zorder>button_f9_led</zorder>
@@ -7375,11 +7382,11 @@
    <zorder>button_num7_led</zorder>
    <zorder>button_numlck_led</zorder>
    <zorder>button_numslash_led</zorder>
-   <zorder>button_nummultiply_led</zorder>
+   <zorder>button_nummulti_led</zorder>
    <zorder>button_numminus_led</zorder>
    <zorder>button_numdel_led</zorder>
    <zorder>button_num0_led</zorder>
-   <zorder>button_numenter_led</zorder>
+   <zorder>button_nument_led</zorder>
    <zorder>button_numplus_led</zorder>
    <zorder>button_z_led</zorder>
    <zorder>button_x_led</zorder>
@@ -7515,7 +7522,7 @@
    <zorder>button_period</zorder>
    <zorder>button_slash</zorder>
    <zorder>button_numplus</zorder>
-   <zorder>button_numenter</zorder>
+   <zorder>button_nument</zorder>
    <zorder>button_num0</zorder>
    <zorder>button_numdel</zorder>
    <zorder>button_num1</zorder>
@@ -7529,7 +7536,7 @@
    <zorder>button_num9</zorder>
    <zorder>button_numlck</zorder>
    <zorder>button_numslash</zorder>
-   <zorder>button_nummultiply</zorder>
+   <zorder>button_nummulti</zorder>
    <zorder>button_numminus</zorder>
    <zorder>button_f5</zorder>
    <zorder>button_f6</zorder>
@@ -7539,7 +7546,7 @@
    <zorder>button_f10</zorder>
    <zorder>button_f11</zorder>
    <zorder>button_f12</zorder>
-   <zorder>button_prntscr</zorder>
+   <zorder>button_prtscr</zorder>
    <zorder>button_scroll</zorder>
    <zorder>button_pause</zorder>
    <zorder>button_insert</zorder>

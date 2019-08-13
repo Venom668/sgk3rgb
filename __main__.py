@@ -1,7 +1,5 @@
 #!/usr/env/python
-import ctl
-from gui import start
+from sgk3rgb.gui import start
 
-
-
-start.main()
+if __name__ == '__main__':
+    start.main()

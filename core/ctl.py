@@ -32,7 +32,7 @@ keycodes = {
     'num2'    : ([0x48], [0x32]),
     'num3'    : ([0x4b], [0x35]),
     'nument'  : ([0x4e], [0x38]),
-    '`'       : ([0x54], [0x3f]),
+    'grave'   : ([0x54], [0x3f]),
     '1'       : ([0x57], [0x42]),
     '2'       : ([0x5a], [0x45]),
     '3'       : ([0x5d], [0x48]),
@@ -43,8 +43,8 @@ keycodes = {
     '8'       : ([0x6c], [0x57]),
     '9'       : ([0x6f], [0x5a]),
     '0'       : ([0x72], [0x5d]),
-    '-'       : ([0x75], [0x60]),
-    '='       : ([0x78], [0x63]),
+    'minus'   : ([0x75], [0x60]),
+    'equal'   : ([0x78], [0x63]),
     'left'    : ([0x7b], [0x65]),
     'bckspc'  : ([0x7b], [0x66]),
     'down'    : ([0x7e], [0x68]),
@@ -55,9 +55,9 @@ keycodes = {
     'num0'    : ([0x87], [0x71]),
     'numlck'  : ([0x87], [0x72]),
     'numdel'  : ([0x8a], [0x74]),
-    'num/'    : ([0x8a], [0x75]),
-    'num*'    : ([0x8d], [0x78]),
-    'num-'    : ([0x90], [0x7b]),
+    'numslash': ([0x8a], [0x75]),
+    'nummulti': ([0x8d], [0x78]),
+    'numminus': ([0x90], [0x7b]),
     'tab'     : ([0x93], [0x7e]),
     'q'       : ([0x96], [0x81]),
     'w'       : ([0x99], [0x84]),
@@ -69,8 +69,8 @@ keycodes = {
     'i'       : ([0xab], [0x96]),
     'o'       : ([0xae], [0x99]),
     'p'       : ([0xb1], [0x9c]),
-    '['       : ([0xb4], [0x9f]),
-    ']'       : ([0xb7], [0xa2]),
+    'lbracket': ([0xb4], [0x9f]),
+    'rbracket': ([0xb7], [0xa2]),
     'bckslash': ([0xba], [0xa5]),
     'delete'  : ([0xbd], [0xa8]),
     'end'     : ([0xc0], [0xab]),
@@ -78,7 +78,7 @@ keycodes = {
     'num7'    : ([0xc6], [0xb1]),
     'num8'    : ([0xc9], [0xb4]),
     'num9'    : ([0xcc], [0xb7]),
-    'num+'    : ([0xcf], [0xba]),
+    'numplus' : ([0xcf], [0xba]),
     'caps'    : ([0xd2], [0xbd]),
     'a'       : ([0xd5], [0xc0]),
     's'       : ([0xd8], [0xc3]),
@@ -89,7 +89,7 @@ keycodes = {
     'j'       : ([0xe7], [0xd2]),
     'k'       : ([0xea], [0xd5]),
     'l'       : ([0xed], [0xd8]),
-    ';'       : ([0xf0], [0xdb]),
+    'colon'   : ([0xf0], [0xdb]),
     'quote'   : ([0xf3], [0xde]),
 #   ''        : ([0xf6], [0xe1]), #nothing
     'enter'   : ([0xf9], [0xe4]),
@@ -108,9 +108,9 @@ keycodes = {
     'b'       : ([0x24], [0x0e]),
     'n'       : ([0x27], [0x11]),
     'm'       : ([0x2a], [0x14]),
-    ','       : ([0x2d], [0x17]),
-    '.'       : ([0x30], [0x1a]),
-    '/'       : ([0x33], [0x1d]),
+    'comma'   : ([0x2d], [0x17]),
+    'period'  : ([0x30], [0x1a]),
+    'slash'   : ([0x33], [0x1d]),
 #   ''        : ([0x36], [0x20]), #f10/f11
     'rshift'  : ([0x39], [0x23]),
 #   ''        : ([0x3c], [0x26]), #f12
@@ -238,5 +238,3 @@ elif args.level:
     change_brightness(str(args.level))
 elif args.color:
     change_light(args.key, args.color)
-elif len(sys.argv) < 2:
-    parser.print_help()
