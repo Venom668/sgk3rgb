@@ -1,7 +1,8 @@
-from PyQt5 import QtWidgets, QtGui, QtCore
+import sys
+from PyQt5 import QtWidgets, QtGui
+from functools import partial
 from sgk3rgb.core import ctl
 from sgk3rgb.gui.app import Ui_MainWindow
-import sys
 
 
 def HTMLtoRGB(color):
@@ -28,16 +29,15 @@ class MainWindow(QtWidgets.QMainWindow):
         super(MainWindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        
+
         self.ui.label.setPixmap(QtGui.QPixmap("sgk3rgb/gui/layout.png"))
         self.ui.colorButton.clicked.connect(self.colorDialog)
+        self.ui.reattach.clicked.connect(ctl.reattach_device)
+        self.ui.attach.clicked.connect(ctl.detach_device)
 
         btns = ctl.keycodes.keys()
         for btn in btns:
-            exec('self.ui.button_' + btn + '.clicked.connect(lambda: self.buttonClick("button_' + btn + '"))')
-#        self.ui.button_1.clicked.connect(lambda: self.buttonClick('button_1'))
-#        self.ui.button_a.clicked.connect(lambda: self.buttonClick('button_a'))
-
+            exec("self.ui.button_" + btn + ".clicked.connect(partial(self.buttonClick, 'button_" + btn + "'))")
 
 def main():
     app = QtWidgets.QApplication([0])

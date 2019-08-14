@@ -7350,6 +7350,32 @@ color: rgb(255, 255, 255);</string>
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="reattach">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>80</y>
+      <width>88</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>reattach</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="attach">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>80</y>
+      <width>88</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>attach</string>
+    </property>
+   </widget>
    <zorder>button_up_led</zorder>
    <zorder>button_down_led</zorder>
    <zorder>button_left_led</zorder>
@@ -7560,6 +7586,8 @@ color: rgb(255, 255, 255);</string>
    <zorder>button_left</zorder>
    <zorder>button_right</zorder>
    <zorder>colorButton</zorder>
+   <zorder>reattach</zorder>
+   <zorder>attach</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
